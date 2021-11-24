@@ -22,7 +22,7 @@ archives:
       amd64: x86_64
 
 dockers:
-  - image_templates: ["ghcr.io/gelleson/{{ .ProjectName }}:{{ .Version }}-amd64"]
+  - image_templates: ["gelleson/{{ .ProjectName }}:{{ .Version }}-amd64"]
     dockerfile: Dockerfile
     use: buildx
     build_flag_templates:
@@ -35,7 +35,7 @@ dockers:
       - --label=org.opencontainers.image.created={{ time "2006-01-02T15:04:05Z07:00" }}
       - --label=org.opencontainers.image.revision={{ .FullCommit }}
       - --label=org.opencontainers.image.licenses=MIT
-  - image_templates: ["ghcr.io/gelleson/{{ .ProjectName }}:{{ .Version }}-arm64v8"]
+  - image_templates: ["gelleson/{{ .ProjectName }}:{{ .Version }}-arm64v8"]
     goarch: arm64
     dockerfile: Dockerfile
     use: buildx
@@ -50,14 +50,14 @@ dockers:
       - --label=org.opencontainers.image.revision={{ .FullCommit }}
       - --label=org.opencontainers.image.licenses=MIT
 docker_manifests:
-  - name_template: ghcr.io/gelleson/{{ .ProjectName }}:{{ .Version }}
+  - name_template: gelleson/{{ .ProjectName }}:{{ .Version }}
     image_templates:
-      - ghcr.io/gelleson/{{ .ProjectName }}:{{ .Version }}-amd64
-      - ghcr.io/gelleson/{{ .ProjectName }}:{{ .Version }}-arm64v8
-  - name_template: ghcr.io/gelleson/{{ .ProjectName }}:latest
+      - gelleson/{{ .ProjectName }}:{{ .Version }}-amd64
+      - gelleson/{{ .ProjectName }}:{{ .Version }}-arm64v8
+  - name_template: gelleson/{{ .ProjectName }}:latest
     image_templates:
-      - ghcr.io/gelleson/{{ .ProjectName }}:{{ .Version }}-amd64
-      - ghcr.io/gelleson/{{ .ProjectName }}:{{ .Version }}-arm64v8
+      - gelleson/{{ .ProjectName }}:{{ .Version }}-amd64
+      - gelleson/{{ .ProjectName }}:{{ .Version }}-arm64v8
 
 checksum:
   name_template: 'checksums.txt'
