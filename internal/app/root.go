@@ -39,6 +39,8 @@ var root = &cobra.Command{
 					log.Fatalln(err)
 				}
 
+				log.Println("resource is ready")
+
 			}(link)
 		}
 
